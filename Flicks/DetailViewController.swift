@@ -13,6 +13,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var infoView: UIView!
     
     let basePoster = "https://image.tmdb.org/t/p/w500"
     
@@ -23,7 +25,9 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        print(movie)
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
+        
+        print(infoView.frame.origin.y + infoView.frame.size.height)
         
         let title = movie["title"] as! String
         let overView = movie["overview"] as! String
